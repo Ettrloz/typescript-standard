@@ -1,0 +1,40 @@
+{
+  "name": "@ettrloz/typescript-standard",
+  "version": "1.0.0",
+  "description": "JavaScript and TypeScript standard project configurations",
+  "main": "./dist/cjs/index.cjs",
+  "module": "./dist/esm/index.mjs",
+  "types": "./types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.mjs",
+      "require": "./dist/cjs/index.cjs",
+      "types": "./types/index.d.ts"
+    },
+    "./*": {
+      "import": "./dist/esm/*/index.mjs",
+      "require": "./dist/cjs/*/index.cjs",
+      "types": "./types/*/index.d.ts"
+    },
+    "./package.json": "./package.json",
+    "./tsconfig/base": "./tsconfig/tsconfig.base.json",
+    "./tsconfig/build": "./tsconfig/tsconfig.build.json"
+  },
+  "scripts": {
+    "build": "npx npm-run-all build-cjs build-esm types",
+    "build-cjs": "npx esbuild --format=cjs --outdir=dist/cjs --sourcemap --out-extension:.js=.cjs ./src/**/*.ts",
+    "build-esm": "npx esbuild --format=esm --outdir=dist/esm --sourcemap --out-extension:.js=.mjs ./src/**/*.ts",
+    "prepare": "npx husky",
+    "types": "npx tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "esbuild": "0.28.2",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.3.0",
+    "npm-run-all": "^4.1.5",
+    "oxfmt": "^0.63.0",
+    "oxlint": "^1.78.0",
+    "typescript": "^7.0.2"
+  }
+}
