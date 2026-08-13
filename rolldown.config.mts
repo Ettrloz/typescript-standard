@@ -1,15 +1,8 @@
+import { globSync } from 'glob';
 import { defineConfig } from 'rolldown';
 
-const input = [
-  'src/index.ts',
-  'src/oxfmt/config.ts',
-  'src/oxfmt/index.ts',
-  'src/oxlint/config.ts',
-  'src/oxlint/index.ts'
-];
-
 const base = {
-  input,
+  input: globSync('src/**/*.ts'),
   external: ['oxfmt', 'oxlint']
 };
 
