@@ -2,6 +2,13 @@
   "name": "@ettrloz/typescript-standard",
   "version": "1.0.0",
   "description": "JavaScript and TypeScript standard project configurations",
+  "license": "MIT",
+  "author": "Ettrloz",
+  "files": [
+    "dist",
+    "tsconfig",
+    "types"
+  ],
   "main": "./dist/cjs/index.cjs",
   "module": "./dist/esm/index.mjs",
   "types": "./types/index.d.ts",
@@ -28,7 +35,6 @@
     "types": "npx tsc"
   },
   "devDependencies": {
-    "@types/node": "^26.2.0",
     "esbuild": "0.28.2",
     "husky": "^9.1.7",
     "lint-staged": "^17.3.0",
@@ -36,5 +42,8 @@
     "oxfmt": "^0.63.0",
     "oxlint": "^1.78.0",
     "typescript": "^7.0.2"
+  },
+  "peerDependencies": {
+    "@types/node": "^26.2.0"
   }
 }
