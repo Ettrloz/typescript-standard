@@ -15,7 +15,7 @@ export const oxlintImportRules = {
 export const oxlintJsdocRules = {
   'jsdoc/check-property-names': 'error',
   'jsdoc/require-param': 'error',
-  'jsdoc/require-param-description': 'error',
+  'jsdoc/require-param-description': 'off',
   'jsdoc/require-param-name': 'error',
   'jsdoc/require-param-type': 'error'
 } satisfies OxlintConfig['rules'];
