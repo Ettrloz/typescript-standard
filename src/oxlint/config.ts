@@ -31,7 +31,7 @@ export const oxlintJsxA11yRules = {
 } satisfies OxlintConfig['rules'];
 
 export const oxlintNodeRules = {
-  'node/exports-style': ['error', 'exports'],
+  'node/exports-style': ['error', 'module.exports'],
   'node/no-new-require': 'error'
 } satisfies OxlintConfig['rules'];
 
