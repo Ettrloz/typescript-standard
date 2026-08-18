@@ -41,8 +41,8 @@ export const oxlintReactRules = {
   'react/function-component-definition': [
     'error',
     {
-      namedComponents: 'function-expression',
-      unnamedComponents: 'arrow-function'
+      namedComponents: ['function-declaration', 'function-expression'],
+      unnamedComponents: ['arrow-function', 'function-expression']
     }
   ],
   'react/hook-use-state': 'error',
