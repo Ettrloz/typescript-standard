@@ -8,7 +8,7 @@ export const oxlintImportRules = {
   'import/namespace': 'error',
   'import/no-absolute-path': 'error',
   'import/no-cycle': 'error',
-  'import/no-default-export': 'error',
+  'import/no-default-export': 'off',
   'import/no-self-import': 'error'
 } satisfies OxlintConfig['rules'];
 
