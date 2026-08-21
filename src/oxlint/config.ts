@@ -55,8 +55,29 @@ export const oxlintConfig = {
         prefer: 'type-imports'
       }
     ],
+    'typescript/no-explicit-any': 'error',
     'typescript/no-namespace': 'error',
+    'typescript/no-unused-vars': [
+      'error',
+      {
+        args: 'all',
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
+        caughtErrorsIgnorePattern: '^_',
+        destructuredArrayIgnorePattern: '^_'
+      }
+    ],
     'typescript/prefer-function-type': 'error',
+    'id-length': [
+      'error',
+      {
+        min: 2,
+        checkGeneric: true,
+        properties: 'never',
+        exceptions: ['_', 'i', 'j', 'k', 'x', 'y', 'z', 'e']
+      }
+    ],
+
     'unicorn/empty-brace-spaces': 'error',
     'unicorn/filename-case': [
       'warn',
@@ -64,5 +85,20 @@ export const oxlintConfig = {
         case: 'kebabCase'
       }
     ]
-  }
+  },
+  overrides: [
+    {
+      files: ['test/**/*.test.ts', 'test/**/*.test.tsx'],
+      plugins: ['jest', 'vitest'],
+      env: {
+        browser: true,
+        builtin: true
+      },
+      rules: {
+        'jest/require-top-level-describe': ['error', { maxNumberOfTopLevelDescribes: 1 }],
+        'jest/max-nested-describe': ['error', { max: 6 }],
+        'vitest/consistent-test-it': ['error', { fn: 'test', withinDescribe: 'test' }]
+      }
+    }
+  ]
 } satisfies OxlintConfig;
